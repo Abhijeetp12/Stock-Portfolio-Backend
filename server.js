@@ -21,7 +21,7 @@ app.use(cors({
   credentials: true,  // Allow credentials (cookies, etc.)
 }));
 
-const port=3000;
+const port=process.env.PORT;
 
 console.log(process.env.SESSION_SECRET);
 app.use(
