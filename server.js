@@ -16,7 +16,7 @@ import "./Config/Passport.js";
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:3001",  // Allow requests from the frontend
+  origin: "https://stockportfolio-henna.vercel.app",  // Allow requests from the frontend
   methods: 'GET,POST,PUT,DELETE',   // Specify allowed methods (optional)
   allowedHeaders: 'Content-Type,Authorization', // Specify allowed headers (optional)
   credentials: true,  // Allow credentials (cookies, etc.)
@@ -39,9 +39,9 @@ app.use(
     saveUninitialized: false,
     cookie: {
       maxAge: 1000 * 60 * 60 ,
-      secure: false, 
+      secure: process.env.NODE_ENV === "production", 
       httpOnly:true,
-      sameSite:"lax"
+      sameSite:"none"
     },
   })
 );
