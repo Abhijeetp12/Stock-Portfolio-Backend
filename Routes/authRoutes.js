@@ -19,7 +19,8 @@ router.get(
   }),
   (req, res) => {
     req.session.user = req.user; 
-    res.redirect("http://localhost:3001/portfolio"); 
+   res.redirect(`${process.env.FRONTEND_URL}/portfolio`);
+
   }
 );
 
