@@ -16,7 +16,7 @@ import "./Config/Passport.js";
 const app = express();
 
 app.use(cors({
-  origin: "https://stockportfolio-henna.vercel.app",  // Allow requests from the frontend
+  origin: process.env.FRONTEND_URL,  // Allow requests from the frontend
   methods: 'GET,POST,PUT,DELETE',   // Specify allowed methods (optional)
   allowedHeaders: 'Content-Type,Authorization', // Specify allowed headers (optional)
   credentials: true,  // Allow credentials (cookies, etc.)
