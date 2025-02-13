@@ -54,9 +54,11 @@ router.get("/portfolio", async (req, res) => {
 
   try{
    
-    if (!req.session.user) {
-      return res.status(401).json({ message: "Unauthorized. Please log in" });
-    }
+  const userId = req.session.user?.id || req.user?.id;
+if (!userId) {
+  return res.status(401).json({ message: "Unauthorized. Please log in" });
+}
+
     console.log("User ID from session:", req.session.user.id);
     
     const result = await pool.query(
